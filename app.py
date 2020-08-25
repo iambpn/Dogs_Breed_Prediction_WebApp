@@ -137,6 +137,7 @@ def getModel():
     print('Keras Model Loading finished.')
     return load_model
 
+model = getModel()
 
 def preprocessImage(image,target_size):
     if image.mode != "RGB":
@@ -182,6 +183,9 @@ def prediction():
         # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)) # to save the Image
         image = Image.open(file)
         processed_image = preprocessImage(image,target_size=(224,224))
+        global model
+        if model == None:
+        	model = getModel()
         predicted_data = model.predict(processed_image)
         # class_index = np.argmax(predicted_data)
         sorted_index = predicted_data.argsort()
@@ -202,5 +206,4 @@ def exception(ex):
 
 if __name__ == '__main__':
     print('Loading Keras Model.')
-    model = getModel()
     app.run()
