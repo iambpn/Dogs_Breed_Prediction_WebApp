@@ -7,7 +7,7 @@ import numpy as np
 from tensorflow import keras
 
 app = Flask(__name__)
-max_size = 10 * 1024 * 1024  # LIMIT MAX UPLOAD SIZE TO 10 MB
+max_size = 10 * 1024 * 1024  # LIMIT : MAX UPLOAD SIZE TO 10 MB
 breed_list = [
     'Afghan_hound',
     'African_hunting_dog',
