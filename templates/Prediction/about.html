@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+    <script>
+        document.title = 'Dogs Breed Prediction | About'
+    </script>
+    <div class="container">
+        <div class="text-center mt-1">
+            <h1> About </h1>
+        </div>
+        <div class="row mt-3 justify-content-center">
+            <div class="col-10">
+                <h3 class="font-inherit pl-3">About Model</h3>
+                <p class="text-justify font-weight-light">
+                    This model is developed using Keras with Tensorflow 2 as the backend for Keras.
+                    The model consists of the 120 dog classes and is based on the VGG-16 model.
+                    This keras model is a fine-tuned version of the VGG-16 model.
+                    It has an accuracy rate of around 73% to 75% on the test set consisting of 2400
+                    Images (20 from each class).
+                </p>
+                <hr>
+                <h3 class="font-inherit pl-3">About Datasets</h3>
+                <p class="text-justify font-weight-light">
+                    The dataset was taken from <a href="http://vision.stanford.edu/aditya86/ImageNetDogs/main.html" class="font-weight-bold">Stanford Dogs Dataset</a> .
+                    Standford Dogs Dataset consists of a photo of 120 different dogs breed.
+                    There are roughly 53000 images of dogs in this dataset.
+                    As the research suggests the state of the art accuracy for this dataset is 89%.
+                    <a href="https://www.researchgate.net/publication/325384896_Modified_Deep_Neural_Networks_for_Dog_Breeds_Identification" class="font-weight-bold">Reference Link</a>
+                </p>
+                <hr>
+                <h4 class="font-inherit pl-3">Link to Project</h4>
+                <p class="text-justify font-weight-light">
+                    Github : <a href="https://github.com/mbpn1/Dogs_Breed_Prediction_WebApp" class="font-weight-bold">Dogs_Breed_Prediction_WebApp </a>
+                </p>
+                <hr>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-10 border border mt-2">
+                <h3 class="font-inherit text-center border-bottom p-2">List of Dog Breeds.</h3>
+                <div class="row">
+                {% for i in range(0,3) %}
+                    <div class="col-4">
+                        <ul>
+                            {% for index in range((40*i),(40*i)+length) %}
+                                <li>{{ breed_list[index] }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
