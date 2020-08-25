@@ -202,7 +202,7 @@ def prediction():
 
 @app.errorhandler(404)
 def exception(ex):
-    return "<h1>404 Error: Page Not Found</h1>",404
+    return render_template('404.html')
 
 if __name__ == '__main__':
     print('Loading Keras Model.')
